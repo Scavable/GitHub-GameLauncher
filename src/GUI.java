@@ -8,9 +8,14 @@ public class GUI {
 
         JFrame frame = new JFrame("Games Launcher");
         JPanel panelGames = new JPanel();
-        JScrollPane jScrollPane = new JScrollPane(panelGames);
+        JScrollPane scrollPane = new JScrollPane(panelGames);
+        JMenuBar menuBar = new JMenuBar();
+        JMenu menuFile = new JMenu("File");
+        JMenu menuEdit = new JMenu("Edit");
+        JMenuItem itemExit = new JMenuItem("Exit");
 
-        frame.getContentPane().add(jScrollPane);
+
+        frame.getContentPane().add(scrollPane);
 
         frame.setPreferredSize(frameSize);
         frame.setLocation(frameSize.width/2, frameSize.height/2);
