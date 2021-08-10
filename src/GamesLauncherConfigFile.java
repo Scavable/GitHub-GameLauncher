@@ -15,14 +15,12 @@ public class GamesLauncherConfigFile {
         fileConfig = new File(folderInstall + "\\config.txt");
         //-------------------------------------------------------------------------------------------------------------
         if (!folderRoot.exists()) {
-            System.out.println("Root folder");
             if (folderRoot.mkdir()) {
                 System.out.println("Root folder created at: " + folderRoot.getAbsoluteFile());
                 new GamesLauncherConfigFile();
             }
         }
         if (!folderInstall.exists()) {
-            System.out.println("Install folder");
             if (folderInstall.mkdir()) {
                 System.out.println("Install Folder created at: " + folderInstall.getAbsoluteFile());
                 new GamesLauncherConfigFile();
@@ -34,11 +32,9 @@ public class GamesLauncherConfigFile {
                 new GamesLauncherConfigFile();
             }
         } else {
-            System.out.println("File exist, determine if empty file");
             FileReader reader = new FileReader(fileConfig);
             BufferedReader bufferedReader = new BufferedReader(reader);
             if (!bufferedReader.ready() || bufferedReader.readLine().isEmpty()) {
-                System.out.println("Empty or null text in file");
                 JFileChooser chooser = new JFileChooser();
                 chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
                 int returnValue = chooser.showOpenDialog(null);
