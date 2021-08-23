@@ -1,7 +1,6 @@
 import javax.swing.*;
 import javax.swing.filechooser.FileSystemView;
 import java.io.*;
-import java.util.ArrayList;
 
 public class GamesLauncherConfigFile {
 
@@ -46,20 +45,26 @@ public class GamesLauncherConfigFile {
                     writer.close();
                 }
             }
+            else{
+                readGames(readConfig());
+            }
             bufferedReader.close();
             reader.close();
         }
         //-------------------------------------------------------------------------------------------------------------
     }
 
-    public void readConfig() {
-
+    public String readConfig() throws IOException {
+        FileReader reader = new FileReader(fileConfig);
+        BufferedReader bufferedReader = new BufferedReader(reader);
+        String gamesFolderLocation = bufferedReader.readLine();
+        bufferedReader.close();
+        reader.close();
+        return gamesFolderLocation;
     }
 
-    ArrayList<String> readGames() {
-        ArrayList<String> games = new ArrayList<>();
-
-        return games;
+    File[] readGames(String gamesFolder) {
+        return new File(gamesFolder).listFiles();
     }
 
     String getDocumentsPath() {

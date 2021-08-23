@@ -6,7 +6,7 @@ public class GUI {
      Declarations and Initializations
      */
     private JFrame frame = new JFrame("Games Launcher");
-    private JPanel panelGames = new JPanel();
+    public  JPanel panelGames = new JPanel();
     private JScrollPane scrollPane = new JScrollPane(panelGames);
     private JMenuBar menuBar = new JMenuBar();
     private JMenu menuFile = new JMenu("File");
@@ -17,26 +17,28 @@ public class GUI {
     private JMenuItem itemDesc = new JMenuItem("Descending");
 
     GUI() {
-        /*
-        Get users desktop screen size and set frame size
-         */
-        Dimension defaultScreenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        Dimension frameSize = new Dimension(defaultScreenSize.width / 2, defaultScreenSize.height / 2);
-
+        //Panel Layout
         panelGames.setLayout(new GridLayout(0, 4, 5, 5));
 
         //Set frame icon
         frame.setIconImage(new ImageIcon("D:\\Users\\UnRea\\Desktop\\temp.png").getImage());
 
+        scrollPanePolicy();
         setMenuBar();
-
-        //Set action. Declare item name in action declaration as param
-        itemExit.setAction(GamesLauncherActions.itemExitAction());
-        itemAsc.setAction(GamesLauncherActions.itemAscAction());
-        itemDesc.setAction(GamesLauncherActions.itemDescAction());
+        setActions();
 
         //Add scrollpane/jpanel to content pane
         frame.getContentPane().add(scrollPane);
+
+        frameBehavior();
+    }
+
+    private void frameBehavior() {
+        /*
+        Get users desktop screen size and set frame size
+         */
+        Dimension defaultScreenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension frameSize = new Dimension(defaultScreenSize.width / 2, defaultScreenSize.height / 2);
 
         //Frame behavior
         frame.setPreferredSize(frameSize);
@@ -44,6 +46,18 @@ public class GUI {
         frame.pack();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    private void setActions() {
+        //Set action. Declare item name in action declaration as param
+        itemExit.setAction(GamesLauncherActions.itemExitAction());
+        itemAsc.setAction(GamesLauncherActions.itemAscAction());
+        itemDesc.setAction(GamesLauncherActions.itemDescAction());
+    }
+
+    private void scrollPanePolicy() {
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
     }
 
     private void setMenuBar() {
