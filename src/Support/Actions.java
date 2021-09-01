@@ -1,7 +1,9 @@
+package Support;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
-public class GamesLauncherActions {
+public class Actions {
 
     public static Action itemExitAction(){
         //Item exit action. Exit is the name shown on item button
@@ -16,26 +18,15 @@ public class GamesLauncherActions {
     public static Action itemAscAction() {
         return new AbstractAction("Ascending") {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                sortAsc();
-            }
-
-            private void sortAsc() {
-
-            }
+            public void actionPerformed(ActionEvent e) {Sort.ascSort();}
         };
     }
 
     public static Action itemDescAction() {
         return new AbstractAction("Descending") {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                sortDesc();
-            }
+            public void actionPerformed(ActionEvent e) {Sort.descSort();}
 
-            private void sortDesc(){
-
-            }
         };
     }
 }

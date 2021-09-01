@@ -1,3 +1,5 @@
+package Support;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -16,9 +18,9 @@ public class GUI {
     private JMenuItem itemAsc = new JMenuItem("Ascending");
     private JMenuItem itemDesc = new JMenuItem("Descending");
 
-    GUI() {
+    public GUI() {
         //Panel Layout
-        panelGames.setLayout(new GridLayout(0, 4, 5, 5));
+        panelGames.setLayout(new GridLayout(0, 4, 4, 4));
 
         //Set frame icon
         frame.setIconImage(new ImageIcon("D:\\Users\\UnRea\\Desktop\\temp.png").getImage());
@@ -50,9 +52,9 @@ public class GUI {
 
     private void setActions() {
         //Set action. Declare item name in action declaration as param
-        itemExit.setAction(GamesLauncherActions.itemExitAction());
-        itemAsc.setAction(GamesLauncherActions.itemAscAction());
-        itemDesc.setAction(GamesLauncherActions.itemDescAction());
+        itemExit.setAction(Actions.itemExitAction());
+        itemAsc.setAction(Actions.itemAscAction());
+        itemDesc.setAction(Actions.itemDescAction());
     }
 
     private void scrollPanePolicy() {
@@ -73,5 +75,45 @@ public class GUI {
         menuFile.add(itemExit);
         menuSort.add(itemAsc);
         menuSort.add(itemDesc);
+    }
+
+    public JFrame getFrame() {
+        return frame;
+    }
+
+    public JScrollPane getScrollPane() {
+        return scrollPane;
+    }
+
+    public JPanel getPanelGames() {
+        return panelGames;
+    }
+
+    public JMenuBar getMenuBar() {
+        return menuBar;
+    }
+
+    public JMenu getMenuFile() {
+        return menuFile;
+    }
+
+    public JMenu getMenuEdit() {
+        return menuEdit;
+    }
+
+    public JMenu getMenuSort() {
+        return menuSort;
+    }
+
+    public JMenuItem getItemExit() {
+        return itemExit;
+    }
+
+    public JMenuItem getItemAsc() {
+        return itemAsc;
+    }
+
+    public JMenuItem getItemDesc() {
+        return itemDesc;
     }
 }
