@@ -15,8 +15,8 @@ public class GUI {
     private JMenu menuEdit = new JMenu("Edit");
     private JMenuItem itemExit = new JMenuItem("Exit");
     private JMenu menuSort = new JMenu("Sort");
-    private JMenuItem itemAsc = new JMenuItem("Ascending");
-    private JMenuItem itemDesc = new JMenuItem("Descending");
+    private JMenuItem itemAsc = new JMenuItem("");
+    private JMenuItem itemDesc = new JMenuItem("");
 
     public GUI() {
         //Panel Layout

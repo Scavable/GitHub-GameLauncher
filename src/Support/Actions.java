@@ -16,14 +16,14 @@ public class Actions {
     }
 
     public static Action itemAscAction() {
-        return new AbstractAction("Ascending") {
+        return new AbstractAction("Z-A") {
             @Override
             public void actionPerformed(ActionEvent e) {Sort.ascSort();}
         };
     }
 
     public static Action itemDescAction() {
-        return new AbstractAction("Descending") {
+        return new AbstractAction("A-Z") {
             @Override
             public void actionPerformed(ActionEvent e) {Sort.descSort();}
 
