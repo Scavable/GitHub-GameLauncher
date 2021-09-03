@@ -8,16 +8,16 @@ public class GUI {
     /*
      Declarations and Initializations
      */
-    private JFrame frame = new JFrame("Games Launcher");
+    private final JFrame frame = new JFrame("Games Launcher");
     public static JPanel panelGames = new JPanel();
-    private JScrollPane scrollPane = new JScrollPane(panelGames);
-    private JMenuBar menuBar = new JMenuBar();
-    private JMenu menuFile = new JMenu("File");
-    private JMenu menuEdit = new JMenu("Edit");
-    private JMenuItem itemExit = new JMenuItem("Exit");
-    private JMenu menuSort = new JMenu("Sort");
-    private JMenuItem itemAsc = new JMenuItem("");
-    private JMenuItem itemDesc = new JMenuItem("");
+    private final JScrollPane scrollPane = new JScrollPane(panelGames);
+    private final JMenuBar menuBar = new JMenuBar();
+    private final JMenu menuFile = new JMenu("File");
+    private final JMenu menuEdit = new JMenu("Edit");
+    private final JMenuItem itemExit = new JMenuItem("Exit");
+    private final JMenu menuSort = new JMenu("Sort");
+    private final JMenuItem itemAsc = new JMenuItem("");
+    private final JMenuItem itemDesc = new JMenuItem("");
 
     public GUI() {
         gamesPanelBehavior();
