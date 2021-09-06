@@ -2,7 +2,10 @@ package Support;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
 
 public class GUI {
     /*
@@ -37,9 +40,10 @@ public class GUI {
         //Add scrollpane/jpanel to content pane
         frame.getContentPane().add(scrollPane);
 
+
         frame.setPreferredSize(frameSize);
-        frame.setLocation(frameSize.width / 2, frameSize.height / 2);
         frame.pack();
+        frame.setLocation(frameSize.width / 2, frameSize.height / 2);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -50,6 +54,7 @@ public class GUI {
     private void scrollPaneBehavior() {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.getVerticalScrollBar().setUnitIncrement(10);
     }
 
     private void gamesPanelBehavior(){
@@ -64,6 +69,16 @@ public class GUI {
         for(File file: games){
             JButton button = new JButton(file.getName());
             button.setPreferredSize(new Dimension((int)panelGames.getSize().getWidth()/4-2, (int)panelGames.getSize().getHeight()/4-2));
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    try {
+                        Desktop.getDesktop().open(new File(ConfigFile.readGamesLocation()+"\\"+button.getText()));
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                }
+            });
             panelGames.add(button);
         }
         panelGames.updateUI();

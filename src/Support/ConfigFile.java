@@ -7,7 +7,9 @@ import java.io.*;
 public class ConfigFile {
 
     private final String documentsPath;
-    private final File folderRoot, folderInstall, fileConfig;
+    private final File folderRoot;
+    private final File folderInstall;
+    private static File fileConfig;
 
     public ConfigFile() throws IOException {
         documentsPath = FileSystemView.getFileSystemView().getDefaultDirectory().getPath();
@@ -48,7 +50,7 @@ public class ConfigFile {
         //-------------------------------------------------------------------------------------------------------------
     }
 
-    public String readGamesLocation() throws IOException {
+    public static String readGamesLocation() throws IOException {
         FileReader reader = new FileReader(fileConfig);
         BufferedReader bufferedReader = new BufferedReader(reader);
         String temp = bufferedReader.readLine();

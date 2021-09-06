@@ -8,5 +8,6 @@ public class Main {
         ConfigFile configFile = new ConfigFile();
         GUI gui = new GUI();
         Sort sort = new Sort(configFile.readGames(configFile.readGamesLocation()));
+
     }
 }
