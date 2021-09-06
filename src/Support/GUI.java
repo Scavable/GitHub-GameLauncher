@@ -2,8 +2,6 @@ package Support;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
@@ -69,14 +67,11 @@ public class GUI {
         for(File file: games){
             JButton button = new JButton(file.getName());
             button.setPreferredSize(new Dimension((int)panelGames.getSize().getWidth()/4-2, (int)panelGames.getSize().getHeight()/4-2));
-            button.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    try {
-                        Desktop.getDesktop().open(new File(ConfigFile.readGamesLocation()+"\\"+button.getText()));
-                    } catch (IOException ioException) {
-                        ioException.printStackTrace();
-                    }
+            button.addActionListener(e -> {
+                try {
+                    Desktop.getDesktop().open(new File(ConfigFile.readGamesLocation()+"\\"+button.getText()));
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
                 }
             });
             panelGames.add(button);
